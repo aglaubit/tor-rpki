@@ -23,7 +23,7 @@ def add_validity_state(filename):
                 continue
             pre = line[9].rstrip()
             asn = line[12].rstrip()
-            url = "http://192.168.0.21:8323/api/v1/validity/" + asn + "/" + pre
+            url = "http://[my ip address]:8323/api/v1/validity/" + asn + "/" + pre
             r = requests.get(url)
             if r.status_code == 400:
                 print('Bad Request')
@@ -61,7 +61,7 @@ def add_validity_state(asn_pre):
         ap = ap.split('|')
         asn = ap[0]
         pre = ap[1]
-        url = "http://192.168.0.21:8323/api/v1/validity/" + asn + "/" + pre
+        url = "http://[ip address]:8323/api/v1/validity/" + asn + "/" + pre
         r = requests.get(url)
         if r.status_code == 400:
             print('Bad Request: ' + asn + ' ' + pre)
